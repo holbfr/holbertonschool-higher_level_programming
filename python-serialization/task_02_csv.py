@@ -8,9 +8,16 @@ import json
 
 def convert_csv_to_json(csv_filename):
     """Writes JSON data to data.json file"""
-    with open(csv_filename, ) as csv_file:
-        reader = csv.DictReader(csv_file)
-        with open('data.json', mode='w', encoding='utf-8') as json_file:
+    try:
+        with open(csv_filename, encoding='utf-8') as csv_file:
+            reader = csv.DictReader(csv_file)
+            rows = []
             for row in reader:
-                # json_file.write(json.dumps(row))
-                json.dump(row, json_file)
+                rows.append(row)
+
+        with open('data.json', mode='w', encoding='utf-8') as json_file:
+            json.dump(rows, json_file, indent=4)
+    except Exception as e:
+        print(e)
+        return False
+    return True
