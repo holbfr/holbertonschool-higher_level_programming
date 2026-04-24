@@ -10,7 +10,7 @@ across multiple functions.
 
 def parse_discount_rate(percent_text):
     """Convert percentage text to decimal rate (e.g. '10' -> 0.10)."""
-    value = float(percent_text)
+    value = float(percent_text) / 100
     return value
 
 
