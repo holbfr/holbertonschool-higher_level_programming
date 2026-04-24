@@ -10,7 +10,7 @@ def accumulate_readings(values):
     """Sum all readings into a single running sum."""
     running_sum = 0
     for value in values:
-        running_sum += value
+        running_sum += int(value)
     return running_sum
 
 
