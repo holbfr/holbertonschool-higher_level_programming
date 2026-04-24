@@ -28,15 +28,16 @@ def compute_average_valid(records):
     for record in records:
         sensor_id = record.get("sensor_id")
         value = record.get("value")
-        logging.debug("processing record sensor_id=%r value=%r", sensor_id, value)
+        logging.info("processing record sensor_id=%r value=%r", sensor_id, value)
 
         if is_valid_record(record):
             valid_value_sum += value
+            processed_count += 1
             logging.info("accepted sensor_id=%s value=%s", sensor_id, value)
         else:
             logging.warning("ignored invalid record sensor_id=%r value=%r", sensor_id, value)
-
-        processed_count += 1
+        print('---------')
+        
 
     if processed_count == 0:
         return 0.0
