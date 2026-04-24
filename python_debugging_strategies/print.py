@@ -15,7 +15,7 @@ def reading_is_ok(value, threshold):
 
     (Per spec: "OK" means value is at or above the threshold.)
     """
-    return value < threshold
+    return value >= threshold
 
 
 def count_ok_readings(readings, threshold):
