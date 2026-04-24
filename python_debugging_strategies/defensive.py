@@ -1,4 +1,3 @@
-#!/usr/bin/env python3
 """
 Lab: Defensive debugging and validation.
 
@@ -10,7 +9,7 @@ Starter assumes ideal input and fails with non-numeric tokens.
 def parse_scores_csv(scores_text):
     """Parse comma-separated scores into a list of ints."""
     parts = scores_text.split(",")
-    return [int(part) for part in parts]
+    return [int(part) for part in parts if part.isnumeric()]
 
 
 def average_score(scores):
